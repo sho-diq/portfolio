@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - Shodiq Ridwanu</title>
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -300,24 +302,25 @@
             background: var(--kemdikbud-blue);
         }
 
-        /* ====== SECTION 2: LANYARD INTERAKTIF (Murni Full Foto) ====== */
+        /* ====== SECTION 2: LANYARD INTERAKTIF (Mepet Teks & Animasi Klik Goyang) ====== */
         .lanyard-section { 
             min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
-            justify-content: center; 
+            justify-content: flex-start; 
             align-items: center; 
             position: relative; 
             background: radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.05) 0%, var(--bg-dark) 60%); 
             border-top: 1px solid rgba(255, 255, 255, 0.03); 
             overflow: hidden; 
+            padding-top: 80px;
         }
         
         .section-title { 
             text-align: center; 
             font-size: 2.5rem; 
             font-weight: 700; 
-            margin-bottom: 60px; 
+            margin-bottom: 10px; /* Jarak sangat rapat dengan tali lanyard */
             z-index: 10; 
         }
         .section-title span { color: var(--kemdikbud-light-blue); }
@@ -345,30 +348,32 @@
             90% { transform: translateY(5px) rotate(1deg); } 
             100% { opacity: 1; transform: translateY(0) rotate(0deg); } 
         }
+
+        /* Efek Goyang Smooth Saat Diklik */
+        @keyframes clickSway {
+            0% { transform: rotate(0deg); }
+            20% { transform: rotate(12deg); }
+            40% { transform: rotate(-10deg); }
+            60% { transform: rotate(6deg); }
+            80% { transform: rotate(-4deg); }
+            100% { transform: rotate(0deg); }
+        }
+
+        .lanyard-container.swinging {
+            animation: clickSway 0.8s ease-in-out;
+        }
         
         .lanyard-strap { 
             width: 20px; 
-            height: 120px; 
+            height: 80px; /* Tali lebih pendek agar langsung terhubung rapat dengan judul */
             background: linear-gradient(to bottom, var(--bg-card), var(--kemdikbud-blue), var(--kemdikbud-gold)); 
             position: relative; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
             border-radius: 4px; 
         }
         
-        .lanyard-strap::after { 
-            content: 'BBGTK JABAR'; 
-            position: absolute; 
-            top: 45px; 
-            left: -48px; 
-            transform: rotate(-90deg); 
-            font-size: 8px; 
-            letter-spacing: 3px; 
-            color: #fff; 
-            font-weight: 700; 
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.8); 
-        }
+        /* Tulisan BBGTK JABAR dihapus sesuai permintaan */
         
-        /* Container ID Card murni gambar tanpa teks di bawahnya */
         .id-card-clean { 
             width: 240px; 
             background: var(--bg-card); 
@@ -434,6 +439,7 @@
 </head>
 <body>
 
+    <!-- Header dengan Fitur Bahasa -->
     <header>
         <div class="logo">Shodiq<span>.</span></div>
         <div class="nav-right">
@@ -451,6 +457,7 @@
         </div>
     </header>
 
+    <!-- SECTION 1: HERO -->
     <section id="hero" class="hero">
         <div class="hero-content">
             <span class="subtitle" id="heroSubtitle" data-id="SELAMAT DATANG DI PROFIL SAYA" data-en="WELCOME TO MY PROFILE">SELAMAT DATANG DI PROFIL SAYA</span>
@@ -467,12 +474,13 @@
             </div>
         </div>
 
+        <!-- Kolom Kanan: Foto Profil Utama (Menggunakan foto-utama.jpg) -->
         <div class="hero-image-wrapper">
             <a href="https://www.instagram.com/sho.diq/" target="_blank" class="hero-image-card">
-                <img src="image_d92482.jpg" alt="Foto Shodiq" class="main-photo">
+                <img src="foto-utama.jpg" alt="Foto Shodiq" class="main-photo">
                 <div class="ig-status-bar">
                     <div class="ig-profile-info">
-                        <img src="image_d92482.jpg" alt="Avatar IG">
+                        <img src="foto-utama.jpg" alt="Avatar IG">
                         <div class="ig-text">
                             <span class="ig-username">@sho.diq</span>
                             <span class="ig-status"><span class="status-dot"></span> Online</span>
@@ -484,18 +492,20 @@
         </div>
     </section>
 
+    <!-- SECTION 2: LANYARD INTERAKTIF -->
     <section id="lanyard" class="lanyard-section">
         <h2 class="section-title">Digital <span>Identity</span></h2>
         <div class="hero-visual">
             <div class="lanyard-container" id="lanyardCard">
                 <div class="lanyard-strap"></div>
                 <div class="id-card-clean">
-                    <img src="idcard.jpeg" alt="Foto ID Card Shodiq">
+                    <img src="foto landyard.jpg" alt="Foto ID Card Shodiq">
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- SECTION 3: PROJECTS -->
     <section id="projects" class="projects-section">
         <div class="projects-header">
             <div>
@@ -534,6 +544,7 @@
         </div>
     </section>
 
+    <!-- SECTION 4: CONTACT -->
     <section id="contact" class="contact-section">
         <div class="contact-container">
             <div class="contact-info">
@@ -567,6 +578,7 @@
         <p>&copy; 2026 Shodiq Ridwanu. Terinspirasi dari semangat Tut Wuri Handayani.</p>
     </footer>
 
+    <!-- JAVASCRIPT -->
     <script>
         const langToggle = document.getElementById('langToggle');
         const langText = document.getElementById('langText');
@@ -620,6 +632,14 @@
         }, { threshold: 0.5 }); 
 
         observer.observe(document.getElementById('lanyard'));
+
+        // Fitur Tambahan: Klik pada ID card lanyard membuat animasi goyang (swaying) smooth
+        lanyard.addEventListener('click', () => {
+            lanyard.classList.remove('swinging');
+            // Memicu reflow agar animasi bisa berulang saat diklik berkali-kali
+            void lanyard.offsetWidth;
+            lanyard.classList.add('swinging');
+        });
     </script>
 </body>
 </html>
