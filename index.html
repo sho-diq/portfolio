@@ -228,7 +228,7 @@
             transform: scale(1.05);
         }
 
-        /* Glassmorphism Status Bar di Bawah Foto */
+        /* Status Bar di Bawah Foto */
         .ig-status-bar {
             position: absolute;
             bottom: 15px;
@@ -302,31 +302,47 @@
             background: var(--kemdikbud-blue);
         }
 
-        /* ====== SECTION 2: LANYARD INTERAKTIF ====== */
+        /* ====== SECTION 2: DIGITAL IDENTITY & CV (Layout 2 Kolom) ====== */
         .lanyard-section { 
             min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
-            justify-content: flex-start; 
+            justify-content: center; 
             align-items: center; 
             position: relative; 
             background: radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.05) 0%, var(--bg-dark) 60%); 
             border-top: 1px solid rgba(255, 255, 255, 0.03); 
             overflow: hidden; 
-            padding-top: 80px;
+            padding: 100px 8%;
         }
         
         .section-title { 
             text-align: center; 
             font-size: 2.5rem; 
             font-weight: 700; 
-            margin-bottom: 10px; 
+            margin-bottom: 50px; 
             z-index: 10; 
+            width: 100%;
         }
         .section-title span { color: var(--kemdikbud-light-blue); }
-        
-        .hero-visual { perspective: 1000px; height: 450px; }
-        
+
+        .identity-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 60px;
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        .identity-left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            perspective: 1000px;
+        }
+
         .lanyard-container { 
             display: flex; 
             flex-direction: column; 
@@ -349,7 +365,6 @@
             100% { opacity: 1; transform: translateY(0) rotate(0deg); } 
         }
 
-        /* Animasi Goyang (Swaying) Aman Tanpa Hilang */
         @keyframes lanyardSwing {
             0% { transform: rotate(0deg); }
             15% { transform: rotate(10deg); }
@@ -366,7 +381,7 @@
         
         .lanyard-strap { 
             width: 20px; 
-            height: 80px; 
+            height: 60px; 
             background: linear-gradient(to bottom, var(--bg-card), var(--kemdikbud-blue), var(--kemdikbud-gold)); 
             position: relative; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
@@ -390,6 +405,69 @@
             display: block; 
             border-radius: 10px; 
             border: 1px solid rgba(255, 255, 255, 0.05); 
+        }
+
+        .identity-right {
+            flex: 1.2;
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .cv-highlight-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: var(--text-main);
+        }
+        .cv-highlight-title span {
+            color: var(--kemdikbud-gold);
+        }
+
+        .cv-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .cv-skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .cv-badge {
+            background: rgba(0, 180, 255, 0.1);
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            color: var(--kemdikbud-light-blue);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 26px;
+            background: linear-gradient(135deg, var(--kemdikbud-blue), var(--kemdikbud-light-blue));
+            color: #fff;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            box-shadow: 0 10px 20px rgba(0, 138, 230, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 138, 230, 0.5);
         }
 
         /* ====== SECTION 3: PROJECTS ====== */
@@ -431,6 +509,7 @@
             .hero-content h1 { font-size: 2.8rem; }
             .btn-group { justify-content: center; }
             .nav-right { display: none; }
+            .identity-container { flex-direction: column; }
             .contact-container { grid-template-columns: 1fr; }
             .input-group { grid-template-columns: 1fr; }
         }
@@ -491,15 +570,39 @@
         </div>
     </section>
 
-    <!-- SECTION 2: LANYARD INTERAKTIF -->
+    <!-- SECTION 2: DIGITAL IDENTITY & CV -->
     <section id="lanyard" class="lanyard-section">
-        <h2 class="section-title">Digital <span>Identity</span></h2>
-        <div class="hero-visual">
-            <div class="lanyard-container" id="lanyardCard">
-                <div class="lanyard-strap"></div>
-                <div class="id-card-clean">
-                    <img src="idcard.jpeg" alt="Foto ID Card Shodiq">
+        <h2 class="section-title">Digital <span>Identity & CV</span></h2>
+        
+        <div class="identity-container">
+            <!-- Kolom Kiri: Lanyard di Kiri -->
+            <div class="identity-left">
+                <div class="lanyard-container" id="lanyardCard">
+                    <div class="lanyard-strap"></div>
+                    <div class="id-card-clean">
+                        <img src="idcard.jpeg" alt="Foto ID Card Shodiq">
+                    </div>
                 </div>
+            </div>
+
+            <!-- Kolom Kanan: Highlight Data CV & Tombol Download -->
+            <div class="identity-right">
+                <h3 class="cv-highlight-title" data-id="Profil & Kompetensi <span>Utama</span>" data-en="Professional Profile & <span>Competencies</span>">Profil & Kompetensi <span>Utama</span></h3>
+                <p class="cv-desc" data-id="Aktif sebagai Aparatur Sipil Negara di UPT BBGTK Provinsi Jawa Barat. Berpengalaman dalam pengelolaan sistem informasi, diseminasi konten digital pendidikan, serta aktif sebagai pemateri dan kreator konten." data-en="Active as a Civil Servant at UPT BBGTK of West Java Province. Experienced in information systems management, digital educational content dissemination, and active as a speaker and content creator.">
+                    Aktif sebagai Aparatur Sipil Negara di UPT BBGTK Provinsi Jawa Barat. Berpengalaman dalam pengelolaan sistem informasi, diseminasi konten digital pendidikan, serta aktif sebagai pemateri dan kreator konten.
+                </p>
+
+                <div class="cv-skills-list">
+                    <span class="cv-badge">Educational Tech</span>
+                    <span class="cv-badge">Digital Content</span>
+                    <span class="cv-badge">Public Speaking</span>
+                    <span class="cv-badge">Web Development</span>
+                    <span class="cv-badge">Social Media Management</span>
+                </div>
+
+                <a href="cv-shodiq.pdf" target="_blank" class="btn-download" id="btnDownloadCV" data-id="Download CV (PDF)" data-en="Download CV (PDF)">
+                    <i class="fa-solid fa-download"></i> Download CV (PDF)
+                </a>
             </div>
         </div>
     </section>
@@ -592,13 +695,13 @@
             elementsToTranslate.forEach(el => {
                 if (currentLang === 'EN') {
                     if(el.querySelector('i')) {
-                        el.innerHTML = el.getAttribute('data-en') + ' <i class="fa-solid fa-arrow-right"></i>';
+                        el.innerHTML = el.getAttribute('data-en') + ' <i class="fa-solid fa-download"></i>';
                     } else {
                         el.textContent = el.getAttribute('data-en');
                     }
                 } else {
                     if(el.querySelector('i')) {
-                        el.innerHTML = el.getAttribute('data-id') + ' <i class="fa-solid fa-arrow-right"></i>';
+                        el.innerHTML = el.getAttribute('data-id') + ' <i class="fa-solid fa-download"></i>';
                     } else {
                         el.textContent = el.getAttribute('data-id');
                     }
@@ -617,7 +720,6 @@
                     
                     setTimeout(() => {
                         document.addEventListener('mousemove', (e) => {
-                            // Gerakan mouse hanya aktif jika animasi klik goyang sedang tidak berjalan
                             if (!lanyard.classList.contains('swinging')) {
                                 const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
                                 const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
@@ -632,13 +734,12 @@
 
         observer.observe(document.getElementById('lanyard'));
 
-        // Perbaikan Animasi Klik: Berayun mulus dan otomatis kembali ke posisi semula tanpa hilang
+        // Animasi Klik Lanyard Berayun Mulus
         lanyard.addEventListener('click', () => {
             lanyard.classList.remove('swinging');
-            void lanyard.offsetWidth; // Memicu reflow browser
+            void lanyard.offsetWidth;
             lanyard.classList.add('swinging');
 
-            // Setelah animasi goyang selesai (0.9 detik), hapus class agar kembali normal
             setTimeout(() => {
                 lanyard.classList.remove('swinging');
             }, 900);
