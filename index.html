@@ -302,7 +302,7 @@
             background: var(--kemdikbud-blue);
         }
 
-        /* ====== SECTION 2: LANYARD INTERAKTIF (Mepet Teks & Animasi Klik Goyang) ====== */
+        /* ====== SECTION 2: LANYARD INTERAKTIF ====== */
         .lanyard-section { 
             min-height: 100vh; 
             display: flex; 
@@ -320,7 +320,7 @@
             text-align: center; 
             font-size: 2.5rem; 
             font-weight: 700; 
-            margin-bottom: 10px; /* Jarak sangat rapat dengan tali lanyard */
+            margin-bottom: 10px; 
             z-index: 10; 
         }
         .section-title span { color: var(--kemdikbud-light-blue); }
@@ -349,7 +349,6 @@
             100% { opacity: 1; transform: translateY(0) rotate(0deg); } 
         }
 
-        /* Efek Goyang Smooth Saat Diklik */
         @keyframes clickSway {
             0% { transform: rotate(0deg); }
             20% { transform: rotate(12deg); }
@@ -365,14 +364,12 @@
         
         .lanyard-strap { 
             width: 20px; 
-            height: 80px; /* Tali lebih pendek agar langsung terhubung rapat dengan judul */
+            height: 80px; 
             background: linear-gradient(to bottom, var(--bg-card), var(--kemdikbud-blue), var(--kemdikbud-gold)); 
             position: relative; 
             box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
             border-radius: 4px; 
         }
-        
-        /* Tulisan BBGTK JABAR dihapus sesuai permintaan */
         
         .id-card-clean { 
             width: 240px; 
@@ -474,7 +471,7 @@
             </div>
         </div>
 
-        <!-- Kolom Kanan: Foto Profil Utama (Menggunakan foto-utama.jpg) -->
+        <!-- Kolom Kanan: Foto Profil Utama -->
         <div class="hero-image-wrapper">
             <a href="https://www.instagram.com/sho.diq/" target="_blank" class="hero-image-card">
                 <img src="foto-utama.jpg" alt="Foto Shodiq" class="main-photo">
@@ -492,14 +489,14 @@
         </div>
     </section>
 
-    <!-- SECTION 2: LANYARD INTERAKTIF -->
+    <!-- SECTION 2: LANYARD INTERAKTIF (Menggunakan idcard.jpeg) -->
     <section id="lanyard" class="lanyard-section">
         <h2 class="section-title">Digital <span>Identity</span></h2>
         <div class="hero-visual">
             <div class="lanyard-container" id="lanyardCard">
                 <div class="lanyard-strap"></div>
                 <div class="id-card-clean">
-                    <img src="foto landyard.jpg" alt="Foto ID Card Shodiq">
+                    <img src="idcard.jpeg" alt="Foto ID Card Shodiq">
                 </div>
             </div>
         </div>
@@ -633,10 +630,9 @@
 
         observer.observe(document.getElementById('lanyard'));
 
-        // Fitur Tambahan: Klik pada ID card lanyard membuat animasi goyang (swaying) smooth
+        // Fitur Animasi Goyang (Swaying) saat ID Card diklik
         lanyard.addEventListener('click', () => {
             lanyard.classList.remove('swinging');
-            // Memicu reflow agar animasi bisa berulang saat diklik berkali-kali
             void lanyard.offsetWidth;
             lanyard.classList.add('swinging');
         });
