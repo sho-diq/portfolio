@@ -349,17 +349,19 @@
             100% { opacity: 1; transform: translateY(0) rotate(0deg); } 
         }
 
-        @keyframes clickSway {
+        /* Animasi Goyang (Swaying) Aman Tanpa Hilang */
+        @keyframes lanyardSwing {
             0% { transform: rotate(0deg); }
-            20% { transform: rotate(12deg); }
-            40% { transform: rotate(-10deg); }
-            60% { transform: rotate(6deg); }
-            80% { transform: rotate(-4deg); }
+            15% { transform: rotate(10deg); }
+            30% { transform: rotate(-8deg); }
+            45% { transform: rotate(6deg); }
+            60% { transform: rotate(-4deg); }
+            75% { transform: rotate(2deg); }
             100% { transform: rotate(0deg); }
         }
 
         .lanyard-container.swinging {
-            animation: clickSway 0.8s ease-in-out;
+            animation: lanyardSwing 0.9s ease-in-out !important;
         }
         
         .lanyard-strap { 
@@ -489,7 +491,7 @@
         </div>
     </section>
 
-    <!-- SECTION 2: LANYARD INTERAKTIF (Menggunakan idcard.jpeg) -->
+    <!-- SECTION 2: LANYARD INTERAKTIF -->
     <section id="lanyard" class="lanyard-section">
         <h2 class="section-title">Digital <span>Identity</span></h2>
         <div class="hero-visual">
@@ -615,13 +617,13 @@
                     
                     setTimeout(() => {
                         document.addEventListener('mousemove', (e) => {
-                            const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
-                            const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
-                            lanyard.style.transform = `rotate(${xAxis}deg) translateY(${yAxis}px)`;
-                            lanyard.style.transition = 'transform 0.1s ease-out';
-                        });
-                        lanyard.addEventListener('mouseenter', () => {
-                            lanyard.style.transition = 'transform 0.3s ease-out';
+                            // Gerakan mouse hanya aktif jika animasi klik goyang sedang tidak berjalan
+                            if (!lanyard.classList.contains('swinging')) {
+                                const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
+                                const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
+                                lanyard.style.transform = `rotate(${xAxis}deg) translateY(${yAxis}px)`;
+                                lanyard.style.transition = 'transform 0.1s ease-out';
+                            }
                         });
                     }, 1500); 
                 }
@@ -630,11 +632,16 @@
 
         observer.observe(document.getElementById('lanyard'));
 
-        // Fitur Animasi Goyang (Swaying) saat ID Card diklik
+        // Perbaikan Animasi Klik: Berayun mulus dan otomatis kembali ke posisi semula tanpa hilang
         lanyard.addEventListener('click', () => {
             lanyard.classList.remove('swinging');
-            void lanyard.offsetWidth;
+            void lanyard.offsetWidth; // Memicu reflow browser
             lanyard.classList.add('swinging');
+
+            // Setelah animasi goyang selesai (0.9 detik), hapus class agar kembali normal
+            setTimeout(() => {
+                lanyard.classList.remove('swinging');
+            }, 900);
         });
     </script>
 </body>
