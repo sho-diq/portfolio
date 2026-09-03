@@ -493,6 +493,8 @@
             font-size: 0.95rem;
             box-shadow: 0 10px 20px rgba(0, 138, 230, 0.3);
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-download:hover {
@@ -642,7 +644,6 @@
         <div class="hero-content">
             <span class="subtitle" id="heroSubtitle" data-id="SELAMAT DATANG DI PROFIL SAYA" data-en="WELCOME TO MY PROFILE">SELAMAT DATANG DI PROFIL SAYA</span>
             
-            <!-- DIPERBAIKI: Menggunakan span dengan atribut data-id dan data-en agar "Hi, I'm" berubah menjadi "Halo, Saya" -->
             <h1><span data-id="Halo, Saya" data-en="Hi, I'm">Halo, Saya</span> <span>Shodiq Ridwanu</span></h1>
             
             <p style="color: var(--kemdikbud-light-blue); font-size: 1.2rem; font-weight: 500; margin-bottom: 15px;" id="heroRole" data-id="Aparatur Sipil Negara & Digital Creator" data-en="Civil Servant & Digital Creator">Aparatur Sipil Negara & Digital Creator</p>
@@ -709,9 +710,10 @@
                     <button type="button" class="btn-view-cv" id="btnViewCV">
                         <i class="fa-solid fa-eye"></i> Lihat CV
                     </button>
-                    <a href="cv-shodiq.pdf" class="btn-download" id="btnDownloadCV" data-id="Download CV (PDF)" data-en="Download CV (PDF)">
+                    <!-- Tombol Download Diubah ke Button dengan ID khusus untuk integrasi aman -->
+                    <button type="button" class="btn-download" id="btnDownloadCV" data-id="Download CV (PDF)" data-en="Download CV (PDF)">
                         <i class="fa-solid fa-download"></i> Download CV (PDF)
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -725,7 +727,8 @@
                 <button type="button" class="close-modal" id="closeModal">&times;</button>
             </div>
             <div class="cv-modal-body">
-                <div class="max-w-5xl mx-auto space-y-6">
+                <!-- Dibungkus id="cvContentSource" agar terbaca aman oleh JS -->
+                <div id="cvContentSource" class="max-w-5xl mx-auto space-y-6">
 
                     <!-- HEADER / BANNER PROFIL -->
                     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
@@ -926,7 +929,6 @@
             elementsToTranslate.forEach(el => {
                 const targetText = currentLang === 'EN' ? el.getAttribute('data-en') : el.getAttribute('data-id');
                 
-                // Cek apakah elemen memiliki tag HTML (seperti <span>) di dalamnya
                 if (targetText.includes('<') && targetText.includes('>')) {
                     if (el.querySelector('i')) {
                         const iconHtml = el.querySelector('i').outerHTML;
@@ -964,6 +966,37 @@
                 if (e.target === cvModal) {
                     cvModal.classList.remove('active');
                 }
+            });
+        }
+
+        // Integrasi Tombol Download CV agar memunculkan pratinjau cetak/PDF dari Modal
+        const btnDownloadCV = document.getElementById('btnDownloadCV');
+        const cvContentSource = document.getElementById('cvContentSource');
+
+        if (btnDownloadCV && cvContentSource) {
+            btnDownloadCV.addEventListener('click', (e) => {
+                e.preventDefault();
+                const printWindow = window.open('', '_blank');
+                printWindow.document.write(`<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Curriculum Vitae - Shodiq Ridwanu S.M.</title>
+    <script src="https://cdn.tailwindcss.com"><\/script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-100 font-['Poppins'] p-8 text-slate-800">
+    <div class="max-w-4xl mx-auto">
+        ${cvContentSource.innerHTML}
+    </div>
+    <script>
+        window.onload = function() {
+            window.print();
+        }
+    <\/script>
+</body>
+</html>`);
+                printWindow.document.close();
             });
         }
 
