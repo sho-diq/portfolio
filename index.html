@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Tailwind CSS CDN (Khusus styling dalam modal CV ASN) -->
+    <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
         /* TEMA KEMENDIKDASMEN (Dark Navy, Light Blue, Gold) */
@@ -302,7 +304,7 @@
             background: var(--kemdikbud-blue);
         }
 
-        /* ====== SECTION 2: DIGITAL IDENTITY & CV (Layout 2 Kolom) ====== */
+        /* ====== SECTION 2: DIGITAL IDENTITY & CV ====== */
         .lanyard-section { 
             min-height: 100vh; 
             display: flex; 
@@ -450,6 +452,34 @@
             font-weight: 500;
         }
 
+        /* Tombol Aksi Kanan (Lihat CV & Download) */
+        .cv-btn-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .btn-view-cv {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.08);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-view-cv:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: var(--kemdikbud-light-blue);
+            transform: translateY(-2px);
+        }
+
         .btn-download {
             display: inline-flex;
             align-items: center;
@@ -468,6 +498,78 @@
         .btn-download:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 25px rgba(0, 138, 230, 0.5);
+        }
+
+        /* ====== MODAL POP-UP LIHAT CV (GAYA CV ASN) ====== */
+        .cv-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 11, 20, 0.85);
+            backdrop-filter: blur(8px);
+            z-index: 99999;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .cv-modal.active {
+            display: flex !important;
+        }
+
+        .cv-modal-content {
+            background: #f1f5f9; /* Slate 100 */
+            border-radius: 20px;
+            width: 100%;
+            max-width: 1000px;
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8);
+            animation: fadeInModal 0.3s ease-out;
+        }
+
+        .cv-modal-header {
+            padding: 15px 25px;
+            background: #0f172a; /* Slate 900 */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cv-modal-header h3 {
+            font-size: 1.1rem;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .close-modal {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: color 0.3s;
+            line-height: 1;
+        }
+        .close-modal:hover {
+            color: #fbbf24;
+        }
+
+        .cv-modal-body {
+            flex: 1;
+            width: 100%;
+            overflow-y: auto;
+            padding: 25px;
+        }
+
+        @keyframes fadeInModal {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         /* ====== SECTION 3: PROJECTS ====== */
@@ -539,7 +641,10 @@
     <section id="hero" class="hero">
         <div class="hero-content">
             <span class="subtitle" id="heroSubtitle" data-id="SELAMAT DATANG DI PROFIL SAYA" data-en="WELCOME TO MY PROFILE">SELAMAT DATANG DI PROFIL SAYA</span>
-            <h1>Hi, I'm <span>Shodiq Ridwanu</span></h1>
+            
+            <!-- DIPERBAIKI: Menggunakan span dengan atribut data-id dan data-en agar "Hi, I'm" berubah menjadi "Halo, Saya" -->
+            <h1><span data-id="Halo, Saya" data-en="Hi, I'm">Halo, Saya</span> <span>Shodiq Ridwanu</span></h1>
+            
             <p style="color: var(--kemdikbud-light-blue); font-size: 1.2rem; font-weight: 500; margin-bottom: 15px;" id="heroRole" data-id="Aparatur Sipil Negara & Digital Creator" data-en="Civil Servant & Digital Creator">Aparatur Sipil Negara & Digital Creator</p>
             
             <p id="heroDesc" data-id="Saya berdedikasi di Kementerian Pendidikan Dasar dan Menengah (Kemendikdasmen) UPT BBGTK Provinsi Jawa Barat dengan minat besar pada pengembangan teknologi pembelajaran, pengelolaan konten digital, dan penyampaian informasi yang kreatif dan edukatif." data-en="I am dedicated to the Ministry of Primary and Secondary Education (Kemendikdasmen) UPT BBGTK of West Java Province, with a strong interest in the development of learning technology, digital content management, and the delivery of creative and educational information.">
@@ -575,7 +680,7 @@
         <h2 class="section-title">Digital <span>Identity & CV</span></h2>
         
         <div class="identity-container">
-            <!-- Kolom Kiri: Lanyard di Kiri -->
+            <!-- Kolom Kiri: Lanyard ID Card -->
             <div class="identity-left">
                 <div class="lanyard-container" id="lanyardCard">
                     <div class="lanyard-strap"></div>
@@ -585,7 +690,7 @@
                 </div>
             </div>
 
-            <!-- Kolom Kanan: Highlight Data CV & Tombol Download -->
+            <!-- Kolom Kanan: Highlight Data CV & Tombol Aksi Lengkap -->
             <div class="identity-right">
                 <h3 class="cv-highlight-title" data-id="Profil & Kompetensi <span>Utama</span>" data-en="Professional Profile & <span>Competencies</span>">Profil & Kompetensi <span>Utama</span></h3>
                 <p class="cv-desc" data-id="Aktif sebagai Aparatur Sipil Negara di UPT BBGTK Provinsi Jawa Barat. Berpengalaman dalam pengelolaan sistem informasi, diseminasi konten digital pendidikan, serta aktif sebagai pemateri dan kreator konten." data-en="Active as a Civil Servant at UPT BBGTK of West Java Province. Experienced in information systems management, digital educational content dissemination, and active as a speaker and content creator.">
@@ -600,12 +705,138 @@
                     <span class="cv-badge">Social Media Management</span>
                 </div>
 
-                <a href="cv-shodiq.pdf" target="_blank" class="btn-download" id="btnDownloadCV" data-id="Download CV (PDF)" data-en="Download CV (PDF)">
-                    <i class="fa-solid fa-download"></i> Download CV (PDF)
-                </a>
+                <div class="cv-btn-group">
+                    <button type="button" class="btn-view-cv" id="btnViewCV">
+                        <i class="fa-solid fa-eye"></i> Lihat CV
+                    </button>
+                    <a href="cv-shodiq.pdf" class="btn-download" id="btnDownloadCV" data-id="Download CV (PDF)" data-en="Download CV (PDF)">
+                        <i class="fa-solid fa-download"></i> Download CV (PDF)
+                    </a>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- MODAL POP-UP UNTUK PRATINJAU CV ASN -->
+    <div class="cv-modal" id="cvModal">
+        <div class="cv-modal-content">
+            <div class="cv-modal-header">
+                <h3>Curriculum Vitae - SHODIQ RIDWANU S.M.</h3>
+                <button type="button" class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <div class="cv-modal-body">
+                <div class="max-w-5xl mx-auto space-y-6">
+
+                    <!-- HEADER / BANNER PROFIL -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                        <div class="flex items-start gap-4">
+                            <img src="https://via.placeholder.com/60" alt="Logo BKN" class="w-14 h-14 object-contain">
+                            <div>
+                                <h1 class="text-2xl font-bold tracking-tight text-slate-900">SHODIQ RIDWANU S.M.</h1>
+                                <p class="text-sm font-semibold uppercase text-slate-500 tracking-wider">Pengolah Data dan Informasi</p>
+                                <p class="text-xs text-slate-500 mt-1">
+                                    NIP 199503282022031011 &bull; Kementerian Pendidikan Dasar dan Menengah
+                                </p>
+                                <p class="text-xs text-slate-500 mt-0.5">
+                                    ASN dengan masa kerja 1 tahun 8 bulan. Pangkat Penata Muda, III/a.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="shrink-0 self-center md:self-auto">
+                            <img src="foto-utama.jpg" alt="Foto ASN" class="w-24 h-24 rounded-lg object-cover border border-slate-200">
+                        </div>
+                    </div>
+
+                    <!-- GRID UTAMA: DATA PRIBADI & IDENTITAS KONTAK -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+                        <!-- KARTU DATA PRIBADI -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Data Pribadi</h2>
+                            
+                            <dl class="grid grid-cols-2 gap-y-3 text-sm">
+                                <dt class="text-slate-500">Tempat / Tgl Lahir</dt>
+                                <dd class="font-medium text-slate-800">KARANGANYAR, 28-03-1995</dd>
+
+                                <dt class="text-slate-500">Jenis Kelamin</dt>
+                                <dd class="font-medium text-slate-800">Laki-Laki</dd>
+
+                                <dt class="text-slate-500">Agama</dt>
+                                <dd class="font-medium text-slate-800">Islam</dd>
+
+                                <dt class="text-slate-500">Status Perkawinan</dt>
+                                <dd class="font-medium text-slate-800">Menikah</dd>
+
+                                <dt class="text-slate-500">TMT CPNS</dt>
+                                <dd class="font-medium text-slate-800">01-03-2022</dd>
+
+                                <dt class="text-slate-500">TMT PNS</dt>
+                                <dd class="font-medium text-slate-800">01-06-2023</dd>
+
+                                <dt class="text-slate-500">Kedudukan Hukum</dt>
+                                <dd class="font-medium text-slate-800">Aktif</dd>
+
+                                <dt class="text-slate-500">Status Pegawai</dt>
+                                <dd class="font-medium text-slate-800">PNS Pusat yang bekerja pada Departemen/Lembaga</dd>
+
+                                <dt class="text-slate-500">Masa Kerja</dt>
+                                <dd class="font-medium text-slate-800">1 th &bull; 8 bln</dd>
+                            </dl>
+                        </div>
+
+                        <!-- KARTU IDENTITAS & KONTAK -->
+                        <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Identitas & Kontak</h2>
+                            
+                            <dl class="grid grid-cols-2 gap-y-3 text-sm">
+                                <dt class="text-slate-500">NIK</dt>
+                                <dd class="font-medium text-slate-800">
+                                    3313112803950001
+                                    <span class="inline-block block text-xs text-emerald-600 font-semibold mt-0.5">[Terverifikasi]</span>
+                                </dd>
+
+                                <dt class="text-slate-500">Nomor Kartu ASN</dt>
+                                <dd class="font-medium text-slate-800">A202300151517</dd>
+
+                                <dt class="text-slate-500">Email</dt>
+                                <dd class="font-medium text-slate-800 break-all">shodiq.email@gmail.com</dd>
+
+                                <dt class="text-slate-500">Email Dinas</dt>
+                                <dd class="font-medium text-slate-800 break-all">shodiq.ridwanu@kemdikbud.go.id</dd>
+
+                                <dt class="text-slate-500">Nomor Telepon/HP</dt>
+                                <dd class="font-medium text-slate-800">085867775660</dd>
+
+                                <dt class="text-slate-500">Alamat</dt>
+                                <dd class="font-medium text-slate-800">RT 01 RW 09 GETAS, KEL./DESA JATEN, KEC.JATEN, KARANGANYAR</dd>
+                            </dl>
+                        </div>
+
+                    </div>
+
+                    <!-- SEKSI POSISI & UNIT KERJA -->
+                    <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
+                        <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Posisi & Unit Kerja</h2>
+                        <dl class="grid grid-cols-1 md:grid-cols-2 gap-y-3 text-sm">
+                            <div class="grid grid-cols-2">
+                                <dt class="text-slate-500">Jabatan</dt>
+                                <dd class="font-medium text-slate-800">PENGOLAH DATA DAN INFORMASI</dd>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <dt class="text-slate-500">Pangkat / Gol</dt>
+                                <dd class="font-medium text-slate-800">Penata Muda, III/a</dd>
+                            </div>
+                            <div class="grid grid-cols-2">
+                                <dt class="text-slate-500">Unit Kerja</dt>
+                                <dd class="font-medium text-slate-800">Balai Besar Guru dan Tenaga Kependidikan Provinsi Jawa Barat</dd>
+                            </div>
+                        </dl>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- SECTION 3: PROJECTS -->
     <section id="projects" class="projects-section">
@@ -693,21 +924,48 @@
             const elementsToTranslate = document.querySelectorAll('[data-id][data-en]');
             
             elementsToTranslate.forEach(el => {
-                if (currentLang === 'EN') {
-                    if(el.querySelector('i')) {
-                        el.innerHTML = el.getAttribute('data-en') + ' <i class="fa-solid fa-download"></i>';
+                const targetText = currentLang === 'EN' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+                
+                // Cek apakah elemen memiliki tag HTML (seperti <span>) di dalamnya
+                if (targetText.includes('<') && targetText.includes('>')) {
+                    if (el.querySelector('i')) {
+                        const iconHtml = el.querySelector('i').outerHTML;
+                        el.innerHTML = targetText + ' ' + iconHtml;
                     } else {
-                        el.textContent = el.getAttribute('data-en');
+                        el.innerHTML = targetText;
                     }
                 } else {
-                    if(el.querySelector('i')) {
-                        el.innerHTML = el.getAttribute('data-id') + ' <i class="fa-solid fa-download"></i>';
+                    if (el.querySelector('i')) {
+                        const iconClass = el.querySelector('i').className;
+                        el.innerHTML = targetText + ` <i class="${iconClass}"></i>`;
                     } else {
-                        el.textContent = el.getAttribute('data-id');
+                        el.textContent = targetText;
                     }
                 }
             });
         });
+
+        // Fitur Modal Lihat CV
+        const btnViewCV = document.getElementById('btnViewCV');
+        const cvModal = document.getElementById('cvModal');
+        const closeModal = document.getElementById('closeModal');
+
+        if (btnViewCV && cvModal && closeModal) {
+            btnViewCV.addEventListener('click', (e) => {
+                e.preventDefault();
+                cvModal.classList.add('active');
+            });
+
+            closeModal.addEventListener('click', () => {
+                cvModal.classList.remove('active');
+            });
+
+            window.addEventListener('click', (e) => {
+                if (e.target === cvModal) {
+                    cvModal.classList.remove('active');
+                }
+            });
+        }
 
         const lanyard = document.getElementById('lanyardCard');
         let isDropped = false;
@@ -732,18 +990,20 @@
             });
         }, { threshold: 0.5 }); 
 
-        observer.observe(document.getElementById('lanyard'));
+        if (lanyard) {
+            observer.observe(document.getElementById('lanyard'));
 
-        // Animasi Klik Lanyard Berayun Mulus
-        lanyard.addEventListener('click', () => {
-            lanyard.classList.remove('swinging');
-            void lanyard.offsetWidth;
-            lanyard.classList.add('swinging');
-
-            setTimeout(() => {
+            // Animasi Klik Lanyard Berayun Mulus
+            lanyard.addEventListener('click', () => {
                 lanyard.classList.remove('swinging');
-            }, 900);
-        });
+                void lanyard.offsetWidth;
+                lanyard.classList.add('swinging');
+
+                setTimeout(() => {
+                    lanyard.classList.remove('swinging');
+                }, 900);
+            });
+        }
     </script>
 </body>
 </html>
