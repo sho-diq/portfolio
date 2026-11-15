@@ -3,11 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portofolio Shodiq Ridwanu - Aparatur Sipil Negara (ASN) BBGTK Jawa Barat & Digital Creator.">
+    <meta property="og:title" content="Portfolio - Shodiq Ridwanu">
+    <meta property="og:description" content="Aparatur Sipil Negara & Digital Creator - Educational Tech, Sistem Informasi, dan Konten Kreatif.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sho-diq.github.io/portfolio/">
+    <meta property="og:image" content="https://raw.githubusercontent.com/sho-diq/portfolio/main/foto-utama.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Portfolio - Shodiq Ridwanu">
+    <meta name="twitter:description" content="Aparatur Sipil Negara & Digital Creator - Educational Tech, Sistem Informasi, dan Konten Kreatif.">
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/sho-diq/portfolio/main/foto-utama.jpg">
+    <meta name="author" content="Shodiq Ridwanu">
+    <meta name="theme-color" content="#050b14">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23050b14'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Arial,sans-serif' font-weight='700' font-size='32' fill='%2300b4ff'%3ES%3Ctspan fill='%23fbbf24'%3E.%3C/tspan%3E%3C/text%3E%3C/svg%3E">
     <title>Portfolio - Shodiq Ridwanu</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-    
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+
     <style>
         :root {
             --bg-dark: #050b14;
@@ -23,7 +36,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Poppins', 'Inter', sans-serif;
             scroll-behavior: smooth;
         }
 
@@ -33,7 +46,7 @@
             overflow-x: hidden;
         }
 
-        /* ====== NAVBAR (Disesuaikan agar aman di Mobile & Desktop) ====== */
+        /* ====== NAVBAR ====== */
         header {
             display: flex;
             justify-content: space-between;
@@ -54,13 +67,14 @@
             color: var(--text-main);
             letter-spacing: 1px;
             white-space: nowrap;
+            text-decoration: none;
         }
         .logo span { color: var(--kemdikbud-light-blue); }
 
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 25px;
+            gap: 20px;
         }
 
         nav ul {
@@ -74,7 +88,7 @@
             color: var(--text-muted);
             font-size: 0.85rem;
             font-weight: 500;
-            transition: all 0.3s;
+            transition: color 0.3s;
         }
 
         nav ul li a:hover, nav ul li a.active {
@@ -89,12 +103,28 @@
             font-size: 0.85rem;
             font-weight: 500;
             cursor: pointer;
-            transition: color 0.3s;
-            border-left: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.3s, border-color 0.3s;
+            border: none;
+            border-left: 1px solid rgba(255,255,255,0.12);
+            background: transparent;
             padding-left: 15px;
             white-space: nowrap;
         }
         .lang-toggle:hover { color: var(--text-main); }
+
+        .menu-toggle {
+            display: none;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.12);
+            color: var(--text-main);
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            cursor: pointer;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
 
         /* ====== SECTION 1: HERO ====== */
         .hero {
@@ -111,11 +141,11 @@
         .hero-content {
             flex: 1;
             max-width: 600px;
-            animation: fadeIn 1.5s ease-out;
+            animation: fadeIn 1s ease-out;
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--kemdikbud-gold);
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -125,38 +155,45 @@
         }
 
         .hero-content h1 {
-            font-size: 3.8rem;
+            font-size: 3.6rem;
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.15;
             margin-bottom: 20px;
         }
 
-        .hero-content h1 span {
+        .hero-content h1 .gradient-name {
             background: linear-gradient(90deg, var(--kemdikbud-light-blue), var(--kemdikbud-gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .hero-content p {
+        .hero-role {
+            color: var(--kemdikbud-light-blue);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .hero-desc {
             color: var(--text-muted);
-            font-size: 1.05rem;
+            font-size: 1.02rem;
             line-height: 1.8;
-            margin-bottom: 40px;
+            margin-bottom: 36px;
         }
 
         .btn-group {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
         }
 
         .btn {
-            padding: 14px 28px;
+            padding: 13px 26px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.95rem;
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 10px;
             transition: all 0.3s ease;
@@ -175,7 +212,7 @@
         .btn-secondary {
             background: rgba(255, 255, 255, 0.05);
             color: var(--text-main);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
         .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.1);
@@ -188,7 +225,7 @@
             flex: 1;
             display: flex;
             justify-content: flex-end;
-            animation: fadeIn 1.5s ease-out 0.3s backwards;
+            animation: fadeIn 1s ease-out 0.2s backwards;
         }
 
         .hero-image-card {
@@ -196,7 +233,7 @@
             position: relative;
             width: 100%;
             max-width: 380px;
-            height: 520px;
+            height: 500px;
             border-radius: 24px;
             overflow: hidden;
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -226,9 +263,9 @@
             bottom: 15px;
             left: 15px;
             right: 15px;
-            background: rgba(10, 21, 38, 0.75);
+            background: rgba(10, 21, 38, 0.8);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.12);
             border-radius: 16px;
             padding: 12px 15px;
             display: flex;
@@ -267,7 +304,7 @@
         }
 
         .ig-btn {
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.12);
             color: #fff;
             padding: 6px 12px;
             border-radius: 8px;
@@ -281,25 +318,25 @@
         .hero-image-card:hover .ig-btn { background: var(--kemdikbud-blue); }
 
         /* ====== SECTION 2: DIGITAL IDENTITY & CV ====== */
-        .lanyard-section { 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            justify-content: center; 
-            align-items: center; 
-            position: relative; 
-            background: radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.05) 0%, var(--bg-dark) 60%); 
-            border-top: 1px solid rgba(255, 255, 255, 0.03); 
-            overflow: hidden; 
+        .lanyard-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            background: radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.05) 0%, var(--bg-dark) 60%);
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+            overflow: hidden;
             padding: 100px 8%;
         }
-        
-        .section-title { 
-            text-align: center; 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-            margin-bottom: 50px; 
-            z-index: 10; 
+
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 50px;
+            z-index: 10;
             width: 100%;
         }
         .section-title span { color: var(--kemdikbud-light-blue); }
@@ -321,26 +358,32 @@
             perspective: 1000px;
         }
 
-        .lanyard-container { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            cursor: pointer; 
-            transform-origin: top center; 
-            opacity: 0; 
-            transform: translateY(-300px); 
+        .lanyard-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+            transform-origin: top center;
+            opacity: 0;
+            transform: translateY(-160px);
+            will-change: transform, opacity;
         }
-        
-        .lanyard-container.dropped { 
-            animation: dropBounce 1.5s cubic-bezier(0.28, 0.84, 0.42, 1) forwards; 
+
+        .lanyard-container.dropped {
+            animation: dropBounce 1.3s cubic-bezier(0.28, 0.84, 0.42, 1) forwards;
         }
-        
-        @keyframes dropBounce { 
-            0% { opacity: 0; transform: translateY(-300px) rotate(-15deg); } 
-            50% { opacity: 1; transform: translateY(30px) rotate(5deg); } 
-            70% { transform: translateY(-15px) rotate(-3deg); } 
-            90% { transform: translateY(5px) rotate(1deg); } 
-            100% { opacity: 1; transform: translateY(0) rotate(0deg); } 
+
+        .lanyard-container.settled {
+            opacity: 1;
+            transform: translateY(0) rotate(0deg);
+        }
+
+        @keyframes dropBounce {
+            0% { opacity: 0; transform: translateY(-160px) rotate(-10deg); }
+            50% { opacity: 1; transform: translateY(20px) rotate(4deg); }
+            70% { transform: translateY(-10px) rotate(-2deg); }
+            90% { transform: translateY(4px) rotate(1deg); }
+            100% { opacity: 1; transform: translateY(0) rotate(0deg); }
         }
 
         @keyframes lanyardSwing {
@@ -354,33 +397,40 @@
         }
 
         .lanyard-container.swinging { animation: lanyardSwing 0.9s ease-in-out !important; }
-        
-        .lanyard-strap { 
-            width: 20px; 
-            height: 60px; 
-            background: linear-gradient(to bottom, var(--bg-card), var(--kemdikbud-blue), var(--kemdikbud-gold)); 
-            position: relative; 
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5); 
-            border-radius: 4px; 
+
+        .lanyard-strap {
+            width: 20px;
+            height: 60px;
+            background: linear-gradient(to bottom, var(--bg-card), var(--kemdikbud-blue), var(--kemdikbud-gold));
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            border-radius: 4px;
         }
-        
-        .id-card-clean { 
-            width: 240px; 
-            background: var(--bg-card); 
-            border-radius: 16px; 
-            border: 1px solid rgba(0, 180, 255, 0.2); 
-            overflow: hidden; 
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 180, 255, 0.1); 
-            position: relative; 
+
+        .id-card-clean {
+            width: 240px;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid rgba(0, 180, 255, 0.25);
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 180, 255, 0.12);
+            position: relative;
             padding: 8px;
         }
-        
-        .id-card-clean img { 
-            width: 100%; 
-            height: auto; 
-            display: block; 
-            border-radius: 10px; 
-            border: 1px solid rgba(255, 255, 255, 0.05); 
+
+        .id-card-clean img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .lanyard-hint {
+            margin-top: 10px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            opacity: 0.8;
         }
 
         .identity-right {
@@ -480,8 +530,9 @@
             padding: 15px 25px;
             background: #0f172a;
             display: flex; justify-content: space-between; align-items: center;
+            gap: 12px;
         }
-        .cv-modal-header h3 { font-size: 1.1rem; color: #fff; font-weight: 600; }
+        .cv-modal-header h3 { font-size: 1.05rem; color: #fff; font-weight: 600; }
 
         .close-modal {
             background: none; border: none;
@@ -499,13 +550,13 @@
         /* ====== SECTION 3: PROJECTS ====== */
         .projects-section { padding: 100px 8%; background: var(--bg-dark); border-top: 1px solid rgba(255, 255, 255, 0.03); }
         .projects-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 20px; }
-        
+
         .project-filters { display: flex; gap: 10px; flex-wrap: wrap; }
         .filter-btn {
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.1);
             color: var(--text-muted);
-            padding: 6px 16px;
+            padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
@@ -518,7 +569,7 @@
             border-color: var(--kemdikbud-blue);
         }
 
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 30px; }
         .project-card {
             background: var(--bg-card);
             border-radius: 16px; padding: 20px;
@@ -533,17 +584,18 @@
             box-shadow: 0 10px 30px rgba(0, 138, 230, 0.15);
         }
         .project-img { width: 100%; height: 180px; border-radius: 10px; background: #1e293b; object-fit: cover; margin-bottom: 20px; }
-        .project-tags { display: flex; gap: 10px; margin-bottom: 15px; }
+        .project-tags { display: flex; gap: 10px; margin-bottom: 15px; flex-wrap: wrap; }
         .tag { font-size: 0.75rem; padding: 4px 10px; background: rgba(0, 180, 255, 0.1); color: var(--kemdikbud-light-blue); border-radius: 20px; font-weight: 600; }
-        .project-card h3 { font-size: 1.2rem; margin-bottom: 10px; }
+        .project-card h3 { font-size: 1.2rem; margin-bottom: 10px; font-weight: 600; }
         .project-card p { color: var(--text-muted); font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
-        
+
         .project-link {
             display: inline-flex; align-items: center; gap: 8px;
             color: var(--kemdikbud-light-blue);
             text-decoration: none; font-weight: 600; font-size: 0.9rem;
             cursor: pointer;
             transition: color 0.3s;
+            background: none; border: none; padding: 0;
         }
         .project-link:hover { color: var(--kemdikbud-gold); }
 
@@ -577,7 +629,7 @@
             display: flex; justify-content: space-between; align-items: center;
             margin-bottom: 20px;
         }
-        .social-modal-header h3 { font-size: 1.2rem; font-weight: 600; color: #fff; }
+        .social-modal-header h3 { font-size: 1.15rem; font-weight: 600; color: #fff; }
 
         .social-options {
             display: flex; flex-direction: column; gap: 12px;
@@ -601,49 +653,142 @@
 
         /* ====== SECTION 4: CONTACT ====== */
         .contact-section { padding: 100px 8%; background: var(--bg-card); border-top: 1px solid rgba(255, 255, 255, 0.03); }
-        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-        .contact-info h2 { font-size: 2.5rem; margin-bottom: 20px; }
+        .contact-container { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+        .contact-info h2 { font-size: 2.5rem; margin-bottom: 20px; font-weight: 700; }
         .contact-info h2 span { color: var(--kemdikbud-gold); }
-        .contact-info p { color: var(--text-muted); margin-bottom: 40px; line-height: 1.6; }
+        .contact-info p { color: var(--text-muted); margin-bottom: 30px; line-height: 1.6; }
         .social-links { display: flex; gap: 15px; }
         .social-icon { width: 45px; height: 45px; border-radius: 50%; background: rgba(255,255,255,0.05); display: flex; justify-content: center; align-items: center; color: var(--text-main); font-size: 1.2rem; text-decoration: none; transition: all 0.3s; border: 1px solid rgba(255,255,255,0.1); }
         .social-icon:hover { background: var(--kemdikbud-blue); color: #fff; transform: translateY(-3px); }
-        .contact-form { background: var(--bg-dark); padding: 40px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
+        .contact-form { background: var(--bg-dark); padding: 36px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); }
         .input-group { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
-        .form-control { width: 100%; padding: 15px 20px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
+        .form-control { width: 100%; padding: 14px 18px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: #fff; font-size: 0.9rem; outline: none; transition: border-color 0.3s; }
         .form-control:focus { border-color: var(--kemdikbud-light-blue); }
-        textarea.form-control { height: 150px; resize: none; margin-bottom: 20px; }
-        .submit-btn { width: 100%; padding: 15px; background: var(--kemdikbud-blue); color: #fff; border: none; border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s; }
+        textarea.form-control { height: 140px; resize: none; margin-bottom: 20px; }
+        .submit-btn { width: 100%; padding: 15px; background: var(--kemdikbud-blue); color: #fff; border: none; border-radius: 10px; font-weight: 600; font-size: 1rem; cursor: pointer; transition: background 0.3s; display: inline-flex; justify-content: center; align-items: center; gap: 8px; }
         .submit-btn:hover { background: var(--kemdikbud-light-blue); }
+
+        .form-feedback {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #38bdf8;
+            display: none;
+        }
+        .form-feedback.show { display: block; }
+
+        .email-row {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 10px 14px;
+            border-radius: 12px;
+            color: var(--text-main);
+        }
+        .copy-email-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 12px;
+            border-radius: 8px;
+            background: rgba(0, 180, 255, 0.14);
+            border: 1px solid rgba(0, 180, 255, 0.3);
+            color: var(--kemdikbud-light-blue);
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        .copy-email-btn:hover {
+            background: var(--kemdikbud-blue);
+            color: #fff;
+            border-color: var(--kemdikbud-blue);
+        }
+        .copy-email-btn.copied {
+            background: rgba(34, 197, 94, 0.2);
+            border-color: #22c55e;
+            color: #4ade80;
+        }
+
+        .back-to-top {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--kemdikbud-blue), var(--kemdikbud-light-blue));
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(0, 138, 230, 0.35);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            cursor: pointer;
+            z-index: 900;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(16px);
+            transition: all 0.3s ease;
+        }
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 14px 30px rgba(0, 180, 255, 0.45);
+        }
 
         footer { text-align: center; padding: 25px; background: var(--bg-dark); color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Responsif Media Queries */
-        @media(max-width: 968px) {
-            header { padding: 12px 4%; }
-            .logo { font-size: 1.1rem; }
-            .nav-right { gap: 12px; }
-            nav ul { gap: 10px; }
-            nav ul li a { font-size: 0.75rem; }
-            .lang-toggle { font-size: 0.75rem; padding-left: 8px; gap: 4px; }
-
-            .hero { flex-direction: column; text-align: center; padding-top: 130px; }
+        /* ====== RESPONSIF MEDIA QUERIES ====== */
+        @media (max-width: 968px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 120px; }
             .hero-image-wrapper { justify-content: center; margin-top: 20px; width: 100%; }
-            .hero-content h1 { font-size: 2.8rem; }
+            .hero-content h1 { font-size: 2.6rem; }
             .btn-group { justify-content: center; }
             .identity-container { flex-direction: column; }
-            .contact-container { grid-template-columns: 1fr; }
+            .contact-container { grid-template-columns: 1fr; gap: 40px; }
             .input-group { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle { display: inline-flex; }
+            nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(5, 11, 20, 0.98);
+                border-bottom: 1px solid rgba(0, 180, 255, 0.15);
+                display: none;
+                padding: 16px 5%;
+            }
+            nav.open { display: block; }
+            nav ul {
+                flex-direction: column;
+                gap: 12px;
+            }
+            nav ul li a {
+                display: block;
+                padding: 6px 0;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">Shodiq<span>.</span></div>
+        <a href="#hero" class="logo">Shodiq<span>.</span></a>
         <div class="nav-right">
-            <nav>
+            <nav id="mainNav">
                 <ul>
                     <li><a href="#hero" class="active" data-id="Beranda" data-en="Home">Beranda</a></li>
                     <li><a href="#lanyard" data-id="Identitas" data-en="Identity">Identitas</a></li>
@@ -651,18 +796,21 @@
                     <li><a href="#contact" data-id="Kontak" data-en="Contact">Kontak</a></li>
                 </ul>
             </nav>
-            <div class="lang-toggle" id="langToggle">
+            <button type="button" class="lang-toggle" id="langToggle" aria-label="Ganti Bahasa">
                 <i class="fa-solid fa-globe"></i> <span id="langText">ID</span>
-            </div>
+            </button>
+            <button type="button" class="menu-toggle" id="menuToggle" aria-label="Buka Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
     </header>
 
     <section id="hero" class="hero">
         <div class="hero-content">
             <span class="subtitle" id="heroSubtitle" data-id="SELAMAT DATANG DI PROFIL SAYA" data-en="WELCOME TO MY PROFILE">SELAMAT DATANG DI PROFIL SAYA</span>
-            <h1><span data-id="Halo, Saya" data-en="Hi, I'm">Halo, Saya</span> <span>Shodiq Ridwanu</span></h1>
-            <p style="color: var(--kemdikbud-light-blue); font-size: 1.2rem; font-weight: 500; margin-bottom: 15px;" id="heroRole" data-id="Aparatur Sipil Negara & Digital Creator" data-en="Civil Servant & Digital Creator">Aparatur Sipil Negara & Digital Creator</p>
-            <p id="heroDesc" data-id="Saya berdedikasi di Kementerian Pendidikan Dasar dan Menengah (Kemendikdasmen) UPT BBGTK Provinsi Jawa Barat dengan minat besar pada pengembangan teknologi pembelajaran, pengelolaan konten digital, dan penyampaian informasi yang kreatif dan edukatif." data-en="I am dedicated to the Ministry of Primary and Secondary Education (Kemendikdasmen) UPT BBGTK of West Java Province, with a strong interest in the development of learning technology, digital content management, and the delivery of creative and educational information.">
+            <h1><span data-id="Halo, Saya" data-en="Hi, I'm">Halo, Saya</span> <span class="gradient-name">Shodiq Ridwanu</span></h1>
+            <p class="hero-role" id="heroRole" data-id="Aparatur Sipil Negara &amp; Digital Creator" data-en="Civil Servant &amp; Digital Creator">Aparatur Sipil Negara &amp; Digital Creator</p>
+            <p class="hero-desc" id="heroDesc" data-id="Saya berdedikasi di Kementerian Pendidikan Dasar dan Menengah (Kemendikdasmen) UPT BBGTK Provinsi Jawa Barat dengan minat besar pada pengembangan teknologi pembelajaran, pengelolaan konten digital, dan penyampaian informasi yang kreatif dan edukatif." data-en="I am dedicated to the Ministry of Primary and Secondary Education (Kemendikdasmen) UPT BBGTK of West Java Province, with a strong interest in the development of learning technology, digital content management, and the delivery of creative and educational information.">
                 Saya berdedikasi di Kementerian Pendidikan Dasar dan Menengah (Kemendikdasmen) UPT BBGTK Provinsi Jawa Barat dengan minat besar pada pengembangan teknologi pembelajaran, pengelolaan konten digital, dan penyampaian informasi yang kreatif dan edukatif.
             </p>
             <div class="btn-group">
@@ -671,35 +819,38 @@
             </div>
         </div>
         <div class="hero-image-wrapper">
-            <a href="https://www.instagram.com/sho.diq/" target="_blank" class="hero-image-card">
-                <img src="foto-utama.jpg" alt="Foto Shodiq" class="main-photo">
+            <a href="https://www.instagram.com/sho.diq/" target="_blank" rel="noopener noreferrer" class="hero-image-card">
+                <img src="https://raw.githubusercontent.com/sho-diq/portfolio/main/foto-utama.jpg" alt="Foto Shodiq" class="main-photo">
                 <div class="ig-status-bar">
                     <div class="ig-profile-info">
-                        <img src="foto-utama.jpg" alt="Avatar IG">
+                        <img src="https://raw.githubusercontent.com/sho-diq/portfolio/main/foto-utama.jpg" alt="Avatar IG">
                         <div class="ig-text">
                             <span class="ig-username">@sho.diq</span>
                             <span class="ig-status"><span class="status-dot"></span> Online</span>
                         </div>
                     </div>
-                    <span class="ig-btn">Kontak <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    <span class="ig-btn" data-id="Kontak" data-en="Contact">Kontak <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                 </div>
             </a>
         </div>
     </section>
 
     <section id="lanyard" class="lanyard-section">
-        <h2 class="section-title">Digital <span>Identity & CV</span></h2>
+        <h2 class="section-title" data-id="Identitas <span>Digital &amp; CV</span>" data-en="Digital <span>Identity &amp; CV</span>">Identitas <span>Digital &amp; CV</span></h2>
         <div class="identity-container">
             <div class="identity-left">
-                <div class="lanyard-container" id="lanyardCard">
-                    <div class="lanyard-strap"></div>
-                    <div class="id-card-clean">
-                        <img src="idcard.jpeg" alt="Foto ID Card Shodiq">
+                <div style="display:flex; flex-direction:column; align-items:center;">
+                    <div class="lanyard-container" id="lanyardCard" title="Klik untuk mengayunkan kartu">
+                        <div class="lanyard-strap"></div>
+                        <div class="id-card-clean">
+                            <img src="https://raw.githubusercontent.com/sho-diq/portfolio/main/idcard.jpeg" alt="Foto ID Card Shodiq">
+                        </div>
                     </div>
+                    <span class="lanyard-hint" data-id="Klik kartu untuk mengayunkan" data-en="Click card to swing">Klik kartu untuk mengayunkan</span>
                 </div>
             </div>
             <div class="identity-right">
-                <h3 class="cv-highlight-title" data-id="Profil & Kompetensi <span>Utama</span>" data-en="Professional Profile & <span>Competencies</span>">Profil & Kompetensi <span>Utama</span></h3>
+                <h3 class="cv-highlight-title" data-id="Profil &amp; Kompetensi <span>Utama</span>" data-en="Professional Profile &amp; <span>Competencies</span>">Profil &amp; Kompetensi <span>Utama</span></h3>
                 <p class="cv-desc" data-id="Aktif sebagai Aparatur Sipil Negara di UPT BBGTK Provinsi Jawa Barat. Berpengalaman dalam pengelolaan sistem informasi, diseminasi konten digital pendidikan, serta aktif sebagai pemateri dan kreator konten." data-en="Active as a Civil Servant at UPT BBGTK of West Java Province. Experienced in information systems management, digital educational content dissemination, and active as a speaker and content creator.">
                     Aktif sebagai Aparatur Sipil Negara di UPT BBGTK Provinsi Jawa Barat. Berpengalaman dalam pengelolaan sistem informasi, diseminasi konten digital pendidikan, serta aktif sebagai pemateri dan kreator konten.
                 </p>
@@ -711,7 +862,7 @@
                     <span class="cv-badge">Social Media Management</span>
                 </div>
                 <div class="cv-btn-group">
-                    <button type="button" class="btn-view-cv" id="btnViewCV">
+                    <button type="button" class="btn-view-cv" id="btnViewCV" data-id="Lihat CV" data-en="View CV">
                         <i class="fa-solid fa-eye"></i> Lihat CV
                     </button>
                     <button type="button" class="btn-download" id="btnDownloadCV" data-id="Download CV (PDF)" data-en="Download CV (PDF)">
@@ -722,47 +873,49 @@
         </div>
     </section>
 
-    <div class="cv-modal" id="cvModal">
+    <div class="cv-modal" id="cvModal" role="dialog" aria-modal="true" aria-labelledby="cvModalTitle">
         <div class="cv-modal-content">
             <div class="cv-modal-header">
-                <h3>Curriculum Vitae - SHODIQ RIDWANU S.M.</h3>
-                <button type="button" class="close-modal" id="closeModal">&times;</button>
+                <h3 id="cvModalTitle">Curriculum Vitae - SHODIQ RIDWANU S.M.</h3>
+                <button type="button" class="close-modal" id="closeModal" aria-label="Tutup">&times;</button>
             </div>
             <div class="cv-modal-body">
                 <div id="cvContentSource" class="max-w-5xl mx-auto space-y-6">
                     <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                         <div class="flex items-start gap-4">
-                            <img src="https://via.placeholder.com/60" alt="Logo BKN" class="w-14 h-14 object-contain">
+                            <div class="w-14 h-14 rounded-xl bg-sky-50 border border-sky-200 flex items-center justify-center shrink-0">
+                                <svg class="w-8 h-8 text-sky-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l8 4v5c0 5.25-3.4 9.74-8 11-4.6-1.26-8-5.75-8-11V7l8-4z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4"/>
+                                </svg>
+                            </div>
                             <div>
                                 <h1 class="text-2xl font-bold tracking-tight text-slate-900">SHODIQ RIDWANU S.M.</h1>
                                 <p class="text-sm font-semibold uppercase text-slate-500 tracking-wider">Pengolah Data dan Informasi</p>
                                 <p class="text-xs text-slate-500 mt-1">NIP 199503282022031011 &bull; Kementerian Pendidikan Dasar dan Menengah</p>
-                                <p class="text-xs text-slate-500 mt-0.5">ASN dengan masa kerja 1 tahun 8 bulan. Pangkat Penata Muda, III/a.</p>
+                                <p class="text-xs text-slate-500 mt-0.5">ASN dengan Pangkat Penata Muda, III/a &bull; UPT BBGTK Provinsi Jawa Barat</p>
                             </div>
                         </div>
                         <div class="shrink-0 self-center md:self-auto">
-                            <img src="foto-utama.jpg" alt="Foto ASN" class="w-24 h-24 rounded-lg object-cover border border-slate-200">
+                            <img src="https://raw.githubusercontent.com/sho-diq/portfolio/main/foto-utama.jpg" alt="Foto ASN" class="w-24 h-24 rounded-lg object-cover border border-slate-200">
                         </div>
                     </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-                            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Data Pribadi</h2>
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Data Kepegawaian</h2>
                             <dl class="grid grid-cols-2 gap-y-3 text-sm">
-                                <dt class="text-slate-500">Tempat / Tgl Lahir</dt><dd class="font-medium text-slate-800">KARANGANYAR, 28-03-1995</dd>
-                                <dt class="text-slate-500">Jenis Kelamin</dt><dd class="font-medium text-slate-800">Laki-Laki</dd>
-                                <dt class="text-slate-500">Agama</dt><dd class="font-medium text-slate-800">Islam</dd>
-                                <dt class="text-slate-500">Status Perkawinan</dt><dd class="font-medium text-slate-800">Menikah</dd>
+                                <dt class="text-slate-500">Pendidikan</dt><dd class="font-medium text-slate-800">S1 Manajemen</dd>
                                 <dt class="text-slate-500">TMT CPNS</dt><dd class="font-medium text-slate-800">01-03-2022</dd>
                                 <dt class="text-slate-500">TMT PNS</dt><dd class="font-medium text-slate-800">01-06-2023</dd>
                                 <dt class="text-slate-500">Kedudukan Hukum</dt><dd class="font-medium text-slate-800">Aktif</dd>
                                 <dt class="text-slate-500">Status Pegawai</dt><dd class="font-medium text-slate-800">PNS Pusat</dd>
-                                <dt class="text-slate-500">Masa Kerja</dt><dd class="font-medium text-slate-800">1 th &bull; 8 bln</dd>
+                                <dt class="text-slate-500">Instansi</dt><dd class="font-medium text-slate-800">BBGTK Jawa Barat</dd>
                             </dl>
                         </div>
                         <div class="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-4">
-                            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Identitas & Kontak</h2>
+                            <h2 class="text-sm font-bold uppercase tracking-wider text-slate-900 border-b pb-2">Identitas &amp; Kontak</h2>
                             <dl class="grid grid-cols-2 gap-y-3 text-sm">
-                                <dt class="text-slate-500">NIK</dt><dd class="font-medium text-slate-800">3313112803950001 <span class="block text-xs text-emerald-600 font-semibold">[Terverifikasi]</span></dd>
+                                <dt class="text-slate-500">Status Verifikasi</dt><dd class="font-medium text-emerald-600 font-semibold">[ASN Terverifikasi]</dd>
                                 <dt class="text-slate-500">Nomor Kartu ASN</dt><dd class="font-medium text-slate-800">A202300151517</dd>
                                 <dt class="text-slate-500">Email Utama</dt><dd class="font-medium text-slate-800 break-all">ridwanushodiq@gmail.com</dd>
                                 <dt class="text-slate-500">Email Dinas</dt><dd class="font-medium text-slate-800 break-all">shodiq.ridwanu@kemdikbud.go.id</dd>
@@ -778,80 +931,80 @@
     <section id="projects" class="projects-section">
         <div class="projects-header">
             <div>
-                <h2 class="section-title" style="margin-bottom: 10px; text-align: left;">Recent <span>Projects</span></h2>
-                <p style="color: var(--text-muted);">Kumpulan aplikasi sistem informasi instansi dan karya digital.</p>
+                <h2 class="section-title" style="margin-bottom: 10px; text-align: left;" data-id="Proyek <span>Terbaru</span>" data-en="Recent <span>Projects</span>">Proyek <span>Terbaru</span></h2>
+                <p style="color: var(--text-muted);" data-id="Kumpulan aplikasi sistem informasi instansi dan karya digital." data-en="Collection of institutional information systems and digital works.">Kumpulan aplikasi sistem informasi instansi dan karya digital.</p>
             </div>
             <div class="project-filters">
-                <button class="filter-btn active" data-filter="all">Semua</button>
-                <button class="filter-btn" data-filter="web">Web & Sistem</button>
-                <button class="filter-btn" data-filter="social">Kreator Otomotif</button>
+                <button type="button" class="filter-btn active" data-filter="all" data-id="Semua" data-en="All">Semua</button>
+                <button type="button" class="filter-btn" data-filter="web" data-id="Web &amp; Sistem" data-en="Web &amp; Systems">Web &amp; Sistem</button>
+                <button type="button" class="filter-btn" data-filter="social" data-id="Kreator Otomotif" data-en="Automotive Creator">Kreator Otomotif</button>
             </div>
         </div>
         <div class="projects-grid">
             <div class="project-card" data-category="web">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500" alt="Penomoran BMN" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600" alt="Penomoran BMN" class="project-img">
                     <div class="project-tags">
                         <span class="tag">Web Apps</span>
                         <span class="tag">Google Apps Script</span>
                     </div>
-                    <h3>Aplikasi Penomoran BMN BBGTK</h3>
-                    <p>Sistem informasi penomoran Barang Milik Negara terintegrasi database Google Spreadsheet untuk otomatisasi surat dan rekapitulasi.</p>
+                    <h3 data-id="Aplikasi Penomoran BMN BBGTK" data-en="BBGTK State Asset Numbering App">Aplikasi Penomoran BMN BBGTK</h3>
+                    <p data-id="Sistem informasi penomoran Barang Milik Negara terintegrasi database Google Spreadsheet untuk otomatisasi surat dan rekapitulasi." data-en="State Asset (BMN) numbering information system integrated with Google Sheets database for letter automation and recapitulation.">Sistem informasi penomoran Barang Milik Negara terintegrasi database Google Spreadsheet untuk otomatisasi surat dan rekapitulasi.</p>
                 </div>
-                <a href="https://karimunkotak.github.io/PenomoranForm-BMN-BBGTKJABAR/#" target="_blank" class="project-link">
+                <a href="https://karimunkotak.github.io/PenomoranForm-BMN-BBGTKJABAR/" target="_blank" rel="noopener noreferrer" class="project-link" data-id="Buka Aplikasi" data-en="Open App">
                     Buka Aplikasi <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
 
             <div class="project-card" data-category="web">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500" alt="SIM PBJ" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600" alt="SIM PBJ" class="project-img">
                     <div class="project-tags">
                         <span class="tag">System Design</span>
                         <span class="tag">Pengadaan</span>
                     </div>
-                    <h3>SIM PBJ BBGTK Jawa Barat</h3>
-                    <p>Sistem Informasi Manajemen Pengadaan Barang dan Jasa untuk mendukung standarisasi dan efisiensi alur kerja Pejabat Pembuat Komitmen (PPK).</p>
+                    <h3 data-id="SIM PBJ BBGTK Jawa Barat" data-en="SIM PBJ BBGTK West Java">SIM PBJ BBGTK Jawa Barat</h3>
+                    <p data-id="Sistem Informasi Manajemen Pengadaan Barang dan Jasa untuk mendukung standarisasi dan efisiensi alur kerja Pejabat Pembuat Komitmen (PPK)." data-en="Procurement Management Information System supporting standardization and workflow efficiency for Commitment Making Officers (PPK).">Sistem Informasi Manajemen Pengadaan Barang dan Jasa untuk mendukung standarisasi dan efisiensi alur kerja Pejabat Pembuat Komitmen (PPK).</p>
                 </div>
-                <a href="https://pbjbbgtkjabar.github.io/SIM/" target="_blank" class="project-link">
+                <a href="https://pbjbbgtkjabar.github.io/SIM/" target="_blank" rel="noopener noreferrer" class="project-link" data-id="Buka Sistem" data-en="Open System">
                     Buka Sistem <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
             </div>
 
             <div class="project-card" data-category="social">
                 <div>
-                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500" alt="Si Karimun Kotak" class="project-img">
+                    <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600" alt="Si Karimun Kotak" class="project-img">
                     <div class="project-tags">
                         <span class="tag">Digital Creator</span>
                         <span class="tag">Automotive</span>
                     </div>
-                    <h3>Si Karimun Kotak (Multiplatform)</h3>
-                    <p>Media kreator konten otomotif Suzuki Karimun Kotak seputar ulasan, tips perawatan, modifikasi, dan kampanye digital via TikTok & Reels.</p>
+                    <h3 data-id="Si Karimun Kotak (Multiplatform)" data-en="Si Karimun Kotak (Multiplatform)">Si Karimun Kotak (Multiplatform)</h3>
+                    <p data-id="Media kreator konten otomotif Suzuki Karimun Kotak seputar ulasan, tips perawatan, modifikasi, dan kampanye digital via TikTok &amp; Reels." data-en="Suzuki Karimun Kotak automotive content creator covering reviews, maintenance tips, modifications, and digital campaigns via TikTok &amp; Reels.">Media kreator konten otomotif Suzuki Karimun Kotak seputar ulasan, tips perawatan, modifikasi, dan kampanye digital via TikTok &amp; Reels.</p>
                 </div>
-                <a href="#" id="btnOpenSocialModal" class="project-link">
+                <button type="button" id="btnOpenSocialModal" class="project-link" data-id="Pilih Media Sosial" data-en="Choose Social Media">
                     Pilih Media Sosial <i class="fa-solid fa-share-nodes"></i>
-                </a>
+                </button>
             </div>
         </div>
     </section>
 
-    <div class="social-modal" id="socialModal">
+    <div class="social-modal" id="socialModal" role="dialog" aria-modal="true" aria-labelledby="socialModalTitle">
         <div class="social-modal-content">
             <div class="social-modal-header">
-                <h3>Pilih Platform Media Sosial</h3>
-                <button type="button" class="close-modal" id="closeSocialModal">&times;</button>
+                <h3 id="socialModalTitle" data-id="Pilih Platform Media Sosial" data-en="Choose Social Media Platform">Pilih Platform Media Sosial</h3>
+                <button type="button" class="close-modal" id="closeSocialModal" aria-label="Tutup">&times;</button>
             </div>
             <div class="social-options">
-                <a href="https://www.tiktok.com/@sikarimunkotak?is_from_webapp=1&sender_device=pc" target="_blank" class="social-option-btn" style="background: rgba(0, 0, 0, 0.4);">
+                <a href="https://www.tiktok.com/@sikarimunkotak?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" class="social-option-btn" style="background: rgba(0, 0, 0, 0.4);">
                     <i class="fa-brands fa-tiktok" style="color: #ff0050;"></i> TikTok (@sikarimunkotak)
                 </a>
-                <a href="https://www.instagram.com/sikarimunkotak/" target="_blank" class="social-option-btn" style="background: rgba(225, 48, 108, 0.1);">
+                <a href="https://www.instagram.com/sikarimunkotak/" target="_blank" rel="noopener noreferrer" class="social-option-btn" style="background: rgba(225, 48, 108, 0.1);">
                     <i class="fa-brands fa-instagram" style="color: #e1306c;"></i> Instagram (@sikarimunkotak)
                 </a>
-                <a href="https://www.facebook.com/sikarimunkotak" target="_blank" class="social-option-btn" style="background: rgba(24, 119, 242, 0.1);">
+                <a href="https://www.facebook.com/sikarimunkotak" target="_blank" rel="noopener noreferrer" class="social-option-btn" style="background: rgba(24, 119, 242, 0.1);">
                     <i class="fa-brands fa-facebook-f" style="color: #1877f2;"></i> Facebook (Si Karimun Kotak)
                 </a>
-                <a href="https://www.youtube.com/@sikarimunkotak" target="_blank" class="social-option-btn" style="background: rgba(255, 0, 0, 0.1);">
+                <a href="https://www.youtube.com/@sikarimunkotak" target="_blank" rel="noopener noreferrer" class="social-option-btn" style="background: rgba(255, 0, 0, 0.1);">
                     <i class="fa-brands fa-youtube" style="color: #ff0000;"></i> YouTube (@sikarimunkotak)
                 </a>
             </div>
@@ -861,69 +1014,113 @@
     <section id="contact" class="contact-section">
         <div class="contact-container">
             <div class="contact-info">
-                <h2>Let's work <span>together!</span></h2>
-                <p>Punya proyek inovatif, butuh pemateri digital, atau ingin berkolaborasi? Jangan ragu untuk mengirim pesan kepada saya.</p>
+                <h2 data-id="Mari <span>Berkolaborasi!</span>" data-en="Let's work <span>together!</span>">Mari <span>Berkolaborasi!</span></h2>
+                <p data-id="Punya proyek inovatif, butuh pemateri digital, atau ingin berkolaborasi? Jangan ragu untuk mengirim pesan kepada saya." data-en="Have an innovative project, need a digital speaker, or want to collaborate? Feel free to send me a message.">Punya proyek inovatif, butuh pemateri digital, atau ingin berkolaborasi? Jangan ragu untuk mengirim pesan kepada saya.</p>
                 <div style="margin-bottom: 30px;">
-                    <div style="display: flex; align-items: center; gap: 15px; margin-bottom: 15px; color: var(--text-main);">
-                        <i class="fa-solid fa-envelope" style="color: var(--kemdikbud-light-blue); font-size: 1.2rem;"></i>
-                        <span>ridwanushodiq@gmail.com</span>
+                    <div class="email-row">
+                        <i class="fa-solid fa-envelope" style="color: var(--kemdikbud-light-blue); font-size: 1.1rem;"></i>
+                        <span id="emailAddress">ridwanushodiq@gmail.com</span>
+                        <button type="button" class="copy-email-btn" id="copyEmailBtn" data-id="Salin" data-en="Copy">
+                            <i class="fa-regular fa-copy"></i> Salin
+                        </button>
                     </div>
                 </div>
                 <div class="social-links">
-                    <a href="#" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/sho.diq/" target="_blank" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/sho-diq" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.instagram.com/sho.diq/" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.youtube.com/@sikarimunkotak" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
                 </div>
             </div>
             <div class="contact-form">
                 <form id="whatsappForm">
                     <div class="input-group">
-                        <input type="text" id="firstName" class="form-control" placeholder="First name" required>
-                        <input type="text" id="lastName" class="form-control" placeholder="Last name" required>
+                        <input type="text" id="firstName" class="form-control" placeholder="Nama depan" data-placeholder-id="Nama depan" data-placeholder-en="First name" required>
+                        <input type="text" id="lastName" class="form-control" placeholder="Nama belakang" data-placeholder-id="Nama belakang" data-placeholder-en="Last name" required>
                     </div>
-                    <textarea id="message" class="form-control" placeholder="Message" required></textarea>
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <textarea id="message" class="form-control" placeholder="Tulis pesan Anda..." data-placeholder-id="Tulis pesan Anda..." data-placeholder-en="Write your message..." required></textarea>
+                    <button type="submit" class="submit-btn" id="submitBtn" data-id="Kirim Pesan via WhatsApp" data-en="Send Message via WhatsApp">
+                        Kirim Pesan via WhatsApp <i class="fa-brands fa-whatsapp"></i>
+                    </button>
+                    <p id="formFeedback" class="form-feedback"></p>
                 </form>
             </div>
         </div>
     </section>
 
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Kembali ke atas" title="Kembali ke atas">
+        <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
     <footer>
-        <p>&copy; 2026 Shodiq Ridwanu. Terinspirasi dari semangat Tut Wuri Handayani.</p>
+        <p data-id="&copy; 2026 Shodiq Ridwanu. Terinspirasi dari semangat Tut Wuri Handayani." data-en="&copy; 2026 Shodiq Ridwanu. Inspired by the spirit of Tut Wuri Handayani.">&copy; 2026 Shodiq Ridwanu. Terinspirasi dari semangat Tut Wuri Handayani.</p>
     </footer>
 
     <script>
+        // ====== MOBILE MENU TOGGLE ======
+        const menuToggle = document.getElementById('menuToggle');
+        const mainNav = document.getElementById('mainNav');
+        const navLinks = document.querySelectorAll('#mainNav a');
+
+        if (menuToggle && mainNav) {
+            menuToggle.addEventListener('click', () => {
+                mainNav.classList.toggle('open');
+                const icon = menuToggle.querySelector('i');
+                icon.className = mainNav.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mainNav.classList.remove('open');
+                    menuToggle.querySelector('i').className = 'fa-solid fa-bars';
+                });
+            });
+        }
+
+        // ====== NAVBAR SCROLL-SPY ======
+        const sections = document.querySelectorAll('section[id]');
+        const scrollSpyObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                    });
+                }
+            });
+        }, { threshold: 0.4 });
+
+        sections.forEach(sec => scrollSpyObserver.observe(sec));
+
+        // ====== LANGUAGE TOGGLE (ID / EN) ======
         const langToggle = document.getElementById('langToggle');
         const langText = document.getElementById('langText');
-        let currentLang = 'ID'; 
+        let currentLang = 'ID';
 
-        langToggle.addEventListener('click', () => {
-            currentLang = currentLang === 'ID' ? 'EN' : 'ID';
-            langText.textContent = currentLang;
+        if (langToggle) {
+            langToggle.addEventListener('click', () => {
+                currentLang = currentLang === 'ID' ? 'EN' : 'ID';
+                langText.textContent = currentLang;
 
-            const elementsToTranslate = document.querySelectorAll('[data-id][data-en]');
-            
-            elementsToTranslate.forEach(el => {
-                const targetText = currentLang === 'EN' ? el.getAttribute('data-en') : el.getAttribute('data-id');
-                
-                if (targetText.includes('<') && targetText.includes('>')) {
-                    if (el.querySelector('i')) {
-                        const iconHtml = el.querySelector('i').outerHTML;
-                        el.innerHTML = targetText + ' ' + iconHtml;
+                document.querySelectorAll('[data-id][data-en]').forEach(el => {
+                    const targetText = currentLang === 'EN' ? el.getAttribute('data-en') : el.getAttribute('data-id');
+                    const icon = el.querySelector('i');
+                    if (icon) {
+                        const iconHtml = icon.outerHTML;
+                        el.innerHTML = `${targetText} ${iconHtml}`;
                     } else {
                         el.innerHTML = targetText;
                     }
-                } else {
-                    if (el.querySelector('i')) {
-                        const iconClass = el.querySelector('i').className;
-                        el.innerHTML = targetText + ` <i class="${iconClass}"></i>`;
-                    } else {
-                        el.textContent = targetText;
-                    }
-                }
-            });
-        });
+                });
 
-        // Fitur Modal Lihat CV
+                document.querySelectorAll('[data-placeholder-id][data-placeholder-en]').forEach(el => {
+                    el.placeholder = currentLang === 'EN'
+                        ? el.getAttribute('data-placeholder-en')
+                        : el.getAttribute('data-placeholder-id');
+                });
+            });
+        }
+
+        // ====== MODAL LIHAT CV ======
         const btnViewCV = document.getElementById('btnViewCV');
         const cvModal = document.getElementById('cvModal');
         const closeModal = document.getElementById('closeModal');
@@ -938,14 +1135,12 @@
                 cvModal.classList.remove('active');
             });
 
-            window.addEventListener('click', (e) => {
-                if (e.target === cvModal) {
-                    cvModal.classList.remove('active');
-                }
+            cvModal.addEventListener('click', (e) => {
+                if (e.target === cvModal) cvModal.classList.remove('active');
             });
         }
 
-        // Fitur Modal Pilihan Media Sosial (Karimun Kotak)
+        // ====== MODAL PILIHAN MEDIA SOSIAL ======
         const btnOpenSocialModal = document.getElementById('btnOpenSocialModal');
         const socialModal = document.getElementById('socialModal');
         const closeSocialModal = document.getElementById('closeSocialModal');
@@ -960,14 +1155,19 @@
                 socialModal.classList.remove('active');
             });
 
-            window.addEventListener('click', (e) => {
-                if (e.target === socialModal) {
-                    socialModal.classList.remove('active');
-                }
+            socialModal.addEventListener('click', (e) => {
+                if (e.target === socialModal) socialModal.classList.remove('active');
             });
         }
 
-        // Integrasi Tombol Download CV agar memunculkan pratinjau cetak/PDF dari Modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                if (cvModal) cvModal.classList.remove('active');
+                if (socialModal) socialModal.classList.remove('active');
+            }
+        });
+
+        // ====== DOWNLOAD / PRINT CV (STANDALONE CSS + BASE HREF) ======
         const btnDownloadCV = document.getElementById('btnDownloadCV');
         const cvContentSource = document.getElementById('cvContentSource');
 
@@ -975,22 +1175,42 @@
             btnDownloadCV.addEventListener('click', (e) => {
                 e.preventDefault();
                 const printWindow = window.open('', '_blank');
+                if (!printWindow) return;
+
                 printWindow.document.write(`<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <base href="${window.location.href}">
     <title>Curriculum Vitae - Shodiq Ridwanu S.M.</title>
-    <script src="https://cdn.tailwindcss.com"><\/script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
+        body { background: #f1f5f9; color: #1e293b; padding: 32px; }
+        .max-w-5xl { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .bg-white { background: #fff; border-radius: 16px; padding: 24px; border: 1px solid #e2e8f0; }
+        .flex { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+        .items-start { display: flex; align-items: flex-start; gap: 16px; }
+        .w-14 { width: 56px; height: 56px; }
+        .w-24 { width: 96px; height: 96px; border-radius: 8px; object-fit: cover; border: 1px solid #e2e8f0; }
+        h1 { font-size: 1.4rem; font-weight: 700; color: #0f172a; }
+        h2 { font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid #e2e8f0; padding-bottom: 8px; margin-bottom: 12px; }
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        dl.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; font-size: 0.85rem; }
+        dt { color: #64748b; }
+        dd { font-weight: 500; color: #1e293b; word-break: break-word; }
+        .text-emerald-600 { color: #059669; font-weight: 600; }
+        .text-xs { font-size: 0.78rem; color: #64748b; margin-top: 4px; }
+        .text-sm { font-size: 0.85rem; color: #64748b; font-weight: 600; }
+        @media print { body { background: #fff; padding: 0; } }
+    </style>
 </head>
-<body class="bg-slate-100 font-['Poppins'] p-8 text-slate-800">
-    <div class="max-w-4xl mx-auto">
-        ${cvContentSource.innerHTML}
-    </div>
+<body>
+    ${cvContentSource.innerHTML}
     <script>
-        window.onload = function() {
-            window.print();
-        }
+        window.addEventListener('load', function() {
+            setTimeout(function() { window.print(); }, 350);
+        });
     <\/script>
 </body>
 </html>`);
@@ -998,7 +1218,7 @@
             });
         }
 
-        // Filter Proyek Interaktif
+        // ====== FILTER PROYEK INTERAKTIF ======
         const filterBtns = document.querySelectorAll('.filter-btn');
         const projectCards = document.querySelectorAll('.project-card');
 
@@ -1009,57 +1229,85 @@
                 const category = btn.getAttribute('data-filter');
 
                 projectCards.forEach(card => {
-                    if (category === 'all' || card.getAttribute('data-category') === category) {
-                        card.style.display = 'flex';
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    const match = category === 'all' || card.getAttribute('data-category') === category;
+                    card.style.display = match ? 'flex' : 'none';
                 });
             });
         });
 
-        // WhatsApp Gateway Form Integration
+        // ====== WHATSAPP GATEWAY FORM (WITH encodeURIComponent) ======
         const whatsappForm = document.getElementById('whatsappForm');
+        const formFeedback = document.getElementById('formFeedback');
+
         if (whatsappForm) {
             whatsappForm.addEventListener('submit', (e) => {
                 e.preventDefault();
-                const firstName = document.getElementById('firstName').value;
-                const lastName = document.getElementById('lastName').value;
-                const message = document.getElementById('message').value;
+                const firstName = document.getElementById('firstName').value.trim();
+                const lastName = document.getElementById('lastName').value.trim();
+                const message = document.getElementById('message').value.trim();
 
-                const text = `Halo Shodiq,%0ASaya ${firstName} ${lastName}.%0A%0APesan:%0A${message}`;
-                const phone = '6285867775660'; 
-                window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+                if (!firstName || !lastName || !message) {
+                    if (formFeedback) {
+                        formFeedback.textContent = currentLang === 'EN'
+                            ? 'Please complete all fields first.'
+                            : 'Mohon lengkapi semua kolom terlebih dahulu.';
+                        formFeedback.classList.add('show');
+                    }
+                    return;
+                }
+
+                const rawText = `Halo Shodiq,\nSaya ${firstName} ${lastName}.\n\nPesan:\n${message}`;
+                const encodedText = encodeURIComponent(rawText);
+                const phone = '6285867775660';
+                window.open(`https://wa.me/${phone}?text=${encodedText}`, '_blank', 'noopener,noreferrer');
+
+                if (formFeedback) {
+                    formFeedback.textContent = currentLang === 'EN'
+                        ? 'Opening WhatsApp...'
+                        : 'Membuka WhatsApp...';
+                    formFeedback.classList.add('show');
+                }
             });
         }
 
+        // ====== LANYARD DROP & VIEWPORT-SAFE MOUSE PARALLAX ======
         const lanyard = document.getElementById('lanyardCard');
+        const lanyardSection = document.getElementById('lanyard');
         let isDropped = false;
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && !isDropped) {
-                    lanyard.classList.add('dropped');
-                    isDropped = true;
-                    
-                    setTimeout(() => {
-                        document.addEventListener('mousemove', (e) => {
-                            if (!lanyard.classList.contains('swinging')) {
-                                const xAxis = (window.innerWidth / 2 - e.pageX) / 35;
-                                const yAxis = (window.innerHeight / 2 - e.pageY) / 35;
-                                lanyard.style.transform = `rotate(${xAxis}deg) translateY(${yAxis}px)`;
-                                lanyard.style.transition = 'transform 0.1s ease-out';
-                            }
-                        });
-                    }, 1500); 
-                }
-            });
-        }, { threshold: 0.5 }); 
+        if (lanyard && lanyardSection) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !isDropped) {
+                        lanyard.classList.add('dropped');
+                        isDropped = true;
 
-        if (lanyard) {
-            observer.observe(document.getElementById('lanyard'));
+                        setTimeout(() => {
+                            lanyard.classList.remove('dropped');
+                            lanyard.classList.add('settled');
+                        }, 1350);
+                    }
+                });
+            }, { threshold: 0.15 });
+
+            observer.observe(lanyardSection);
+
+            if (window.matchMedia('(hover: hover)').matches) {
+                document.addEventListener('mousemove', (e) => {
+                    if (isDropped && !lanyard.classList.contains('swinging') && lanyard.classList.contains('settled')) {
+                        const rect = lanyard.getBoundingClientRect();
+                        const centerX = rect.left + rect.width / 2;
+                        const centerY = rect.top + rect.height / 2;
+                        const xAxis = Math.max(-10, Math.min(10, (centerX - e.clientX) / 35));
+                        const yAxis = Math.max(-8, Math.min(8, (centerY - e.clientY) / 35));
+                        lanyard.style.transform = `rotate(${xAxis}deg) translateY(${yAxis}px)`;
+                        lanyard.style.transition = 'transform 0.12s ease-out';
+                    }
+                });
+            }
 
             lanyard.addEventListener('click', () => {
+                lanyard.style.transform = '';
                 lanyard.classList.remove('swinging');
                 void lanyard.offsetWidth;
                 lanyard.classList.add('swinging');
@@ -1067,6 +1315,66 @@
                 setTimeout(() => {
                     lanyard.classList.remove('swinging');
                 }, 900);
+            });
+        }
+
+        // ====== COPY EMAIL SEKALI KLIK ======
+        const copyEmailBtn = document.getElementById('copyEmailBtn');
+        const emailAddress = document.getElementById('emailAddress');
+
+        if (copyEmailBtn && emailAddress) {
+            copyEmailBtn.addEventListener('click', async () => {
+                const email = emailAddress.textContent.trim();
+                let copied = false;
+                try {
+                    if (navigator.clipboard && navigator.clipboard.writeText) {
+                        await navigator.clipboard.writeText(email);
+                        copied = true;
+                    }
+                } catch (_) {
+                    copied = false;
+                }
+
+                if (!copied) {
+                    const tempInput = document.createElement('textarea');
+                    tempInput.value = email;
+                    tempInput.setAttribute('readonly', '');
+                    tempInput.style.position = 'absolute';
+                    tempInput.style.left = '-9999px';
+                    document.body.appendChild(tempInput);
+                    tempInput.select();
+                    try {
+                        copied = document.execCommand('copy');
+                    } catch (_) {
+                        copied = false;
+                    }
+                    document.body.removeChild(tempInput);
+                }
+
+                if (copied) {
+                    copyEmailBtn.classList.add('copied');
+                    copyEmailBtn.innerHTML = currentLang === 'EN'
+                        ? '<i class="fa-solid fa-check"></i> Copied!'
+                        : '<i class="fa-solid fa-check"></i> Disalin!';
+                    setTimeout(() => {
+                        copyEmailBtn.classList.remove('copied');
+                        copyEmailBtn.innerHTML = currentLang === 'EN'
+                            ? '<i class="fa-regular fa-copy"></i> Copy'
+                            : '<i class="fa-regular fa-copy"></i> Salin';
+                    }, 2000);
+                }
+            });
+        }
+
+        // ====== BACK TO TOP BUTTON ======
+        const backToTop = document.getElementById('backToTop');
+        if (backToTop) {
+            window.addEventListener('scroll', () => {
+                backToTop.classList.toggle('visible', window.scrollY > 400);
+            }, { passive: true });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         }
     </script>
